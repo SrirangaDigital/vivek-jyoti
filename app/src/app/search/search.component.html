@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md"></div>
+    <div class="col-md-10 mainpage">
+      <h1>Archive > Search</h1>
+      	
+  	  <form class="searchForm" role="form" (ngSubmit)="onSubmit(searchForm.value)" #searchForm="ngForm">
+  	  	<div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label for="title" class="col-lg-2 col-form-label form-control-label">Title</label>
+              <div class="col-lg-9">
+                <input [(ngModel)]="title" name="title" id="title" class="form-control" type="text">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="authornames" class="col-lg-2 col-form-label form-control-label">Author</label>
+              <div class="col-lg-9">
+                <input [(ngModel)]="authornames" name="authornames" id="authornames" class="form-control" type="text">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="feature" class="col-lg-2 col-form-label form-control-label">Feature</label>
+              <div class="col-lg-9">
+                <input [(ngModel)]="feature" name="feature" id="feature" class="form-control" type="text">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label for="series" class="col-lg-2 col-form-label form-control-label">Series</label>
+              <div class="col-lg-9">
+                <input [(ngModel)]="series" name="series" id="series" class="form-control" type="text">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="fulltext" class="col-lg-2 col-form-label form-control-label">Word</label>
+              <div class="col-lg-9">
+                <input [(ngModel)]="fulltext" name="fulltext" id="fulltext" class="form-control" type="text" placeholder="Full text search">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="year" class="col-lg-2 col-form-label form-control-label">Period</label>
+              <div class="col-lg-9">
+                <input [(ngModel)]="year" name="year" id="year" class="form-control" type="text" placeholder="Year1-Year2">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-3">
+            <input name="submit" id="submit" class="form-control" type="submit" value="Search">
+          </div>
+          <div class="col-md-3">
+            <input name="reset" id="reset" class="form-control" type="reset" value="Reset">
+          </div>
+        </div>
+	    </form>
+    </div>
+    <div class="col-md"></div>
+  </div>
+</div>

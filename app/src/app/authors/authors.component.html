@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md"></div>
+    <div class="col-md-10 mainpage">
+
+      <h1>Archive > <span *ngIf="letter == 'Featured'">Featured</span> Authors</h1>
+      <p *ngIf="letter == 'Featured'"><i class="fa fa-star gold"></i> This is a list of {{ authors.length }} authors with more than 50 articles to their credit.</p>
+      <div class="alphabet" *ngIf="letter != 'Featured'">
+        <span class="letter"><a routerLink="/authors/A">A</a></span> <span class="letter"><a routerLink="/authors/B">B</a></span> <span class="letter"><a routerLink="/authors/C">C</a></span> <span class="letter"><a routerLink="/authors/D">D</a></span> <span class="letter"><a routerLink="/authors/E">E</a></span> <span class="letter"><a routerLink="/authors/F">F</a></span> <span class="letter"><a routerLink="/authors/G">G</a></span> <span class="letter"><a routerLink="/authors/H">H</a></span> <span class="letter"><a routerLink="/authors/I">I</a></span> <span class="letter"><a routerLink="/authors/J">J</a></span> <span class="letter"><a routerLink="/authors/K">K</a></span> <span class="letter"><a routerLink="/authors/L">L</a></span> <span class="letter"><a routerLink="/authors/M">M</a></span> <span class="letter"><a routerLink="/authors/N">N</a></span> <span class="letter"><a routerLink="/authors/O">O</a></span> <span class="letter"><a routerLink="/authors/P">P</a></span> <span class="letter"><a routerLink="/authors/Q">Q</a></span> <span class="letter"><a routerLink="/authors/R">R</a></span> <span class="letter"><a routerLink="/authors/S">S</a></span> <span class="letter"><a routerLink="/authors/T">T</a></span> <span class="letter"><a routerLink="/authors/U">U</a></span> <span class="letter"><a routerLink="/authors/V">V</a></span> <span class="letter"><a routerLink="/authors/W">W</a></span> <span class="letter"><a routerLink="/authors/X">X</a></span> <span class="letter"><a routerLink="/authors/Y">Y</a></span> <span class="letter"><a routerLink="/authors/Z">Z</a></span>
+        <span class="float-right gold"><a routerLink="/authors/Featured"><i class="fa fa-star"></i> Featured Authors</a></span>
+      </div>
+
+      <div *ngFor="let author of authors" class="full-width-card red-edge">
+        <span class="article-count" *ngIf="letter == 'Featured'">{{ author.count }} articles</span>
+        <h3 class="author"><a routerLink="/articles/author" [queryParams]="{authornames: author.author}">{{ author.author }}</a></h3>
+      </div>
+    </div>
+    <div class="col-md"></div>
+  </div>
+</div>

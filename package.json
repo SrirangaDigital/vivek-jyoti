@@ -1,0 +1,51 @@
+{
+  "name": "vivek-jyoti",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Sriranga Digital Software Technologies Private Limited",
+  "description": "Digital archives of all issues of the Bhavan's Journal magazine from 1954 till 2016",
+  "scripts": {
+    "electron": "electron .",
+    "electron-build": "ng build --prod && electron .",
+    "package-win": "electron-packager . --overwrite --platform=win32 --arch=x64 --icon=dist/assets/img/logo.ico --prune=true --out=release-builds --version-string.CompanyName=\"Sriranga Digital Software Technologies Private Limited\" --version-string.FileDescription=\"Bhavan's Journal Archive\" --version-string.ProductName=\"Bhavan's Journal Archive\"",
+    "package-linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=dist/assets/img/logo.png --prune=true --out=release-builds",
+    "dist": "build --x64"
+  },
+  "build": {
+    "appId": "com.srirangadigital.vvj",
+    "asar": true,
+    "directories": {
+      "output": "release-builds"
+    },
+    "copyright": "©2018 Bharatiya Vidya Bhavan",
+    "linux": {
+      "target": "AppImage",
+      "executableName": "vivek-jyoti-linux",
+      "icon": "build/icon.png",
+      "category": "Education"
+    },
+    "win": {
+      "target": "nsis",
+      "publisherName": "Sriranga Digital Software Technologies Private Limited"
+    },
+    "mac": {
+      "category": "public.app-category.education",
+      "target": "dmg",
+      "icon": "build/icon.icns"
+    },
+    "appImage": {
+      "artifactName": "Bhavans Journal Archive - For Linux"
+    },
+    "nsis": {
+      "installerIcon": "build/icon.ico"
+    }
+  },
+  "private": true,
+  "dependencies": {
+    "electron-context-menu": "^0.9.1"
+  },
+  "devDependencies": {
+    "electron": "^1.8.2",
+    "electron-builder": "^20.28.2"
+  }
+}

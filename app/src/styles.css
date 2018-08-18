@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../src/assets/css/fonts.css";
+@import "../src/assets/css/navbar.css";
+@import "../src/assets/css/page.css";
+@import "../src/assets/css/homepage.css";
+@import "../src/assets/css/general.css";
+@import "../src/assets/css/font-awesome-4.7.0/css/font-awesome.min.css";

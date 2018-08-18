@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md"></div>
+    <div class="col-md-10 mainpage">
+
+      <h1>Archive > {{ pageTitle }}</h1>
+      <h5 *ngIf="articles.length > 1 &amp;&amp; articleListType != 'articlesLetterWise'" class="num-results">{{ articles.length }} articles</h5>
+      <div *ngIf="articleListType == 'articlesLetterWise'" class="alphabet">
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^A'}">A</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^B'}">B</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^C'}">C</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^D'}">D</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^E'}">E</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^F'}">F</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^G'}">G</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^H'}">H</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^I'}">I</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^J'}">J</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^K'}">K</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^L'}">L</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^M'}">M</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^N'}">N</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^O'}">O</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^P'}">P</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^Q'}">Q</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^R'}">R</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^S'}">S</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^T'}">T</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^U'}">U</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^V'}">V</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^W'}">W</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^X'}">X</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^Y'}">Y</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^Z'}">Z</a></span> <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^(?![a-zA-Z]).*'}">#</a></span>
+      </div>
+
+      <div *ngFor="let article of articles" class="full-width-card blue-edge">
+        <h4 class="publication-details">
+          <span *ngIf="article.feature" class="red"><a routerLink="/articles/feature" [queryParams]="{feature: article.feature}">{{ article.feature }}</a></span>
+          <span *ngIf="article.series" class="brown"><a routerLink="/articles/series" [queryParams]="{series: article.series}">{{ article.series }}</a></span>
+          <span class="gray"><a routerLink="/articles/toc" [queryParams]="{volume: article.volume, part: article.part}">{{ article.date | date:'d MMMM y' }} (Volume {{ article.volume | rlzero}}, Issue {{ article.part | rlzero}})</a></span>
+        </h4>
+        <h2 class="title">
+          <p *ngIf="article.series" class="serial-no brown">Serial no. {{ article.tnum | rlzero }}</p>
+          <a target="_blank" [href]="basePdfUrl+article.volume+'/'+article.part+'/index.pdf#page='+article.page" class="pdf">{{ article.title }}</a>
+        </h2>
+        <h3 *ngIf="article.authornames != ''" class="author by">
+          <span *ngFor="let author of article.authornames"><a routerLink="/articles/author" [queryParams]="{authornames: author}">{{ author }}</a></span>
+        </h3>
+      </div>
+    </div>
+    <div class="col-md"></div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<nav class="navbar navbar-light navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand"><img src="assets/img/logo.png" alt="Logo of Bharatiya Vidya Bhavan" class="img-circle"></a>
+        <span class="navbar-text">Bharatiya Vidya Bhavan</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav nav ml-auto">
+                <li class="nav-item active"><a class="nav-link" routerLink="/page/home">HOME <span class="sr-only">(current)</span></a></li>
+                <li class="nav-item"><a routerLink="/page/about" class="nav-link">ABOUT</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/page/editors">EDITORS</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/page/archives">ARCHIVE</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/page/help">HELP</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div *ngIf="(router.url != '/') && (router.url != '/page/home')" class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <a (click)="location.back()" class="goBack"><i class="fa fa-arrow-left"></i> Back</a>
+      <div id="cd-sec-nav" class="">
+        <a class="cd-sec-nav-trigger">Menu<span></span></a>
+        <nav id="cd-sec-main-nav">
+          <ul class="">
+            <li><a class="years" routerLink="/years"><i class="fa fa-calendar"></i> Years</a></li>
+            <li><a class="titles" routerLink="/articles"><i class="fa fa-calendar"></i> Titles</a></li>
+            <li><a class="authors" routerLink="/authors"><i class="fa fa-users"></i> Authors</a></li>
+            <li><a class="features" routerLink="/features"><i class="fa fa-tags"></i> Features</a></li>
+            <li><a class="series" routerLink="/series"><i class="fa fa-link"></i> Series</a></li>
+            <li><a class="search" routerLink="/search"><i class="fa fa-search"></i> Search</a></li>
+          </ul>
+        </nav> <!-- cd-sec-main-nav -->
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,9 +1,9 @@
 {
-  "name": "bhavans-journal",
+  "name": "vivek-jyoti",
   "version": "1.0.0",
   "license": "MIT",
   "author": "Sriranga Digital Software Technologies Private Limited",
-  "description": "Digital archives of all issues of the Bhavan's Journal magazine from 1954 till 2016",
+  "description": "Digital archives of all issues of the Vivek Jyoti magazine from 1963 till 2018",
   "main": "main.js",
   "scripts": {
     "ng": "ng",

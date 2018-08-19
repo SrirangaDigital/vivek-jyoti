@@ -3,12 +3,10 @@
   "version": "1.0.0",
   "license": "MIT",
   "author": "Sriranga Digital Software Technologies Private Limited",
-  "description": "Digital archives of all issues of the Bhavan's Journal magazine from 1954 till 2016",
+  "description": "Digital archives of all issues of the Vivek Jyoti magazine from 1963 till 2018",
   "scripts": {
-    "electron": "electron .",
+    "electron": "electron app",
     "electron-build": "ng build --prod && electron .",
-    "package-win": "electron-packager . --overwrite --platform=win32 --arch=x64 --icon=dist/assets/img/logo.ico --prune=true --out=release-builds --version-string.CompanyName=\"Sriranga Digital Software Technologies Private Limited\" --version-string.FileDescription=\"Bhavan's Journal Archive\" --version-string.ProductName=\"Bhavan's Journal Archive\"",
-    "package-linux": "electron-packager . --overwrite --platform=linux --arch=x64 --icon=dist/assets/img/logo.png --prune=true --out=release-builds",
     "dist": "build --x64"
   },
   "build": {
@@ -17,7 +15,7 @@
     "directories": {
       "output": "release-builds"
     },
-    "copyright": "©2018 Bharatiya Vidya Bhavan",
+    "copyright": "©2018 Ramakrishna Mission Vivekananda Ashrama, Raipur",
     "linux": {
       "target": "AppImage",
       "executableName": "vivek-jyoti-linux",
@@ -34,7 +32,7 @@
       "icon": "build/icon.icns"
     },
     "appImage": {
-      "artifactName": "Bhavans Journal Archive - For Linux"
+      "artifactName": "Vivek Jyoti Archive - For Linux"
     },
     "nsis": {
       "installerIcon": "build/icon.ico"

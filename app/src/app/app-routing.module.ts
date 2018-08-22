@@ -12,9 +12,9 @@ import { PageComponent } from './page/page.component';
 const appRoutes: Routes = [
   { path: 'years', component: YearsComponent },
   { path: 'articles/:articleListType', component: ArticlesComponent },
-  { path: 'articles', redirectTo: '/articles/articlesLetterWise?title=@^A', pathMatch: 'full' },
+  { path: 'articles', redirectTo: '/articles/articlesLetterWise?title=@^अ', pathMatch: 'full' },
   { path: 'authors/:letter', component: AuthorsComponent },
-  { path: 'authors', redirectTo: '/authors/A', pathMatch: 'full' },
+  { path: 'authors', redirectTo: '/authors/अ', pathMatch: 'full' },
   { path: 'features', component: FeatureComponent },
   { path: 'series', component: SeriesComponent },
   { path: 'search', component: SearchComponent },

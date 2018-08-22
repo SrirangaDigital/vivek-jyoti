@@ -54,3 +54,4 @@ common/
 .junk/
 /app/public/index.asar
 /app/public/index/
+/app/public/data/

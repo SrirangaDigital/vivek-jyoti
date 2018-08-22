@@ -61,7 +61,7 @@
   font-style: italic;
 }
 .mainpage .full-width-card h3.author.by:before{
- content: 'by ';
+ content: '–';
  margin-right: 2px;
 }
 .mainpage .full-width-card h3.author span:not(:first-of-type):not(:last-of-type):before{
@@ -133,7 +133,7 @@
   font-weight: bold;
   padding: 10px 0 10px 0;
   text-align: center;
-  max-width: 78px;
+  /*max-width: 78px;*/
 }
 .mainpage .issueRow .issue a{
   color: #3D3536;

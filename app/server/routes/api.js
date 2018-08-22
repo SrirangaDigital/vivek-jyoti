@@ -25,6 +25,7 @@ router.get('/articles', function(req, res){
 	// Remove keys with null values
 	req.query = _und.pick(req.query, _und.identity);
 
+
 	var query = {};
 	_und.each(req.query, function(value, key) {
 
@@ -34,7 +35,9 @@ router.get('/articles', function(req, res){
 
 	if(_und.isEmpty(query)) return res.json([]);
 
-	var sort = {}; sort['volume'] = 1; sort['part'] = 1; sort['page'] = 1;
+	var sort = {};
+	if ('title' in query) sort['title'] = 1;
+	sort['volume'] = 1; sort['part'] = 1; sort['page'] = 1;
 
 	Article.find(query).sort(sort).exec(function(err, result){
 
@@ -59,14 +62,15 @@ router.get('/parts', function(req, res){
 
 	if(_und.isEmpty(query)) return res.json([]);
 
-	var projection = {}; projection['date'] = 1; projection['volume'] = 1; projection['part'] = 1; projection['_id'] = 0;
-	var sort = {}; sort['date'] = 1;
+	var projection = {}; projection['date'] = 1; projection['month'] = 1; projection['volume'] = 1; projection['part'] = 1; projection['_id'] = 0;
+	var sort = {}; sort['month'] = 1;
 
 	Article.find(query, projection).sort(sort).exec(function(err, result){
 
 		if(err)			
 			console.log(err);
 		else 
+
 			return res.json(_und.uniq(result, 'part'));
 	});
 });

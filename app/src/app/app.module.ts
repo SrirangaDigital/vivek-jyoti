@@ -23,6 +23,8 @@ import { PageComponent } from './page/page.component';
 
 // Custom Pipes
 import { RlzeroPipe } from './custom-pipes/rlzero.pipe';
+import { ToDevanagariPipe } from './custom-pipes/toDevanagari.pipe';
+import { MonthToDevanagariPipe } from './custom-pipes/monthToDevanagari.pipe';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { RlzeroPipe } from './custom-pipes/rlzero.pipe';
     SearchComponent,
     SearchResultsComponent,
     PageComponent,
-    RlzeroPipe
+    RlzeroPipe,
+    ToDevanagariPipe,
+    MonthToDevanagariPipe
   ],
   imports: [
     BrowserModule,

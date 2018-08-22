@@ -24,7 +24,7 @@ export class YearsComponent implements OnInit {
   yearDisplayed: Array<boolean> = [];
    
   // Create an instance of the DataService through dependency injection
-  constructor( private route: ActivatedRoute, private router: Router, private _dataService: DataService ) { 
+  constructor( private route: ActivatedRoute, private router: Router, private _dataService: DataService) { 
 
     this._dataService.getYearsList()
         .subscribe(res => {

@@ -1,7 +1,6 @@
 .homepage .intro .titlegroup{
-  margin-top: 25%;
   text-align: center;
-  font-family: 'Old Standard TT', serif;
+  font-family: 'Sanskrit2003', serif;
   color: #444;
 }
 .homepage .intro .title{
@@ -24,7 +23,7 @@
   margin-top: 60px;
 }
 .homepage .about p{
-  font-size: 18px;
+  font-size: 20px;
   font-family: 'Sanskrit2003', sans-serif;
   color: #444;
   line-height: 32px;
@@ -35,7 +34,7 @@
 }
 .homepage .archive{
   margin: 80px 0;
-  font-family: 'Old Standard TT', serif;
+  font-family: 'Sanskrit2003', serif;
 }
 .homepage .archive h2.title{
   text-align: center;
@@ -52,7 +51,8 @@
   padding: 10px 20px;
 }
 .homepage .archive tr td:first-of-type{
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: normal;
   text-align: right;
   /*font-style: italic;*/
   border-right: 1px solid #1565C0;
@@ -67,7 +67,7 @@
 }
 .homepage .prefaceTab {
   color: #444;
-  font-family: 'Old Standard TT', serif;
+  font-family: 'Sanskrit2003', serif;
   padding: 0 15px;
   text-align: center;
 }

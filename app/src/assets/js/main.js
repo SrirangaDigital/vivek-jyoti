@@ -30,6 +30,8 @@ jQuery(document).ready(function($){
 				mainNavigation.addClass('has-transitions');
 			});
 		} else if ($(window).scrollTop() <= offset) {
+
+			console.log('Open');
 			//check if the menu is open when scrolling up
 			if( mainNavigation.hasClass('is-visible')  && !$('html').hasClass('no-csstransitions') ) {
 				//close the menu with animation

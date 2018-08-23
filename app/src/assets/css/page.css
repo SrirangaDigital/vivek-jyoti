@@ -56,20 +56,28 @@
   font-weight: 300;
   padding-top: 20px;
 }
-.mainpage .full-width-card h3.author{
+.mainpage .full-width-card h3.author:empty,
+.mainpage .full-width-card h3.translator:empty{
+  display: none;
+}
+.mainpage .full-width-card h3.author,
+.mainpage .full-width-card h3.translator{
   font-size: 18px;
   color: #555;
   font-weight: 300;
   /*padding-top: 8px;*/
 }
-.mainpage .full-width-card h3.author.by:before{
+.mainpage .full-width-card h3.author.by:before,
+.mainpage .full-width-card h3.translator.by:before{
  content: '–';
  margin-right: 2px;
 }
-.mainpage .full-width-card h3.author span:not(:first-of-type):not(:last-of-type):before{
+.mainpage .full-width-card h3.author span:not(:first-of-type):not(:last-of-type):before,
+.mainpage .full-width-card h3.translator span:not(:first-of-type):not(:last-of-type):before{
  content: ', ';
 }
-.mainpage .full-width-card h3.author span:not(:first-of-type):last-of-type:before{
+.mainpage .full-width-card h3.author span:not(:first-of-type):last-of-type:before,
+.mainpage .full-width-card h3.translator span:not(:first-of-type):last-of-type:before{
  content: ' और ';
  color: #999;
  font-size: 16px;

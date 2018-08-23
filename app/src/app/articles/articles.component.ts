@@ -72,6 +72,9 @@ export class ArticlesComponent implements OnInit {
       case 'author' :
         this.pageTitle = 'लेखक : ' + this.urlParams.get('authornames');
         break;
+      case 'translator' :
+        this.pageTitle = 'अनुवादक : ' + this.urlParams.get('translatornames');
+        break;
       case 'feature' :
         this.pageTitle = 'स्तम्भ : ' + this.urlParams.get('feature');
         break;

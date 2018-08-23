@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 // Components
 import { ArticlesComponent } from './articles/articles.component';
 import { AuthorsComponent } from './authors/authors.component';
+import { TranslatorsComponent } from './translators/translators.component';
 import { FeatureComponent } from './feature/feature.component';
 import { SeriesComponent } from './series/series.component';
 import { YearsComponent } from './years/years.component';
@@ -31,6 +32,7 @@ import { MonthToDevanagariPipe } from './custom-pipes/monthToDevanagari.pipe';
     AppComponent,
     ArticlesComponent,
     AuthorsComponent,
+    TranslatorsComponent,
     FeatureComponent,
     SeriesComponent,
     YearsComponent,

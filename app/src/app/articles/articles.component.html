@@ -52,10 +52,16 @@
         </h4>
         <h2 class="title">
           <p *ngIf="article.series" class="serial-no red">क्रमांक {{ article.tnum | rlzero | toDevanagari}}</p>
-          <a target="_blank" [href]="basePdfUrl+article.volume+'/'+article.part+'/index.pdf#page='+article.page" class="pdf">{{ article.title }}</a>
+          <a target="_blank" [href]="basePdfUrl + article.volume + '/' + article.part + '/index.pdf#page=' + article.page" class="pdf">{{ article.title }}</a>
         </h2>
-        <h3 *ngIf="article.authornames != ''" class="author by">
-          <span *ngFor="let author of article.authornames"><a routerLink="/articles/author" [queryParams]="{authornames: author}">{{ author }}</a></span>
+        <h3 class="author by">
+          <span *ngIf="article.authornames != ''">
+            <span *ngFor="let author of article.authornames"><a routerLink="/articles/author" [queryParams]="{authornames: author}">{{ author }}</a></span>
+          </span>
+          <span *ngIf="article.translatornames != ''">
+            अनुवाद - 
+            <span *ngFor="let translator of article.translatornames"><a routerLink="/articles/translator" [queryParams]="{translatornames: translator}">{{ translator }}</a></span>
+          </span>
         </h3>
       </div>
     </div>

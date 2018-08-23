@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router'; // Import Router Module
 import { YearsComponent } from './years/years.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { AuthorsComponent } from './authors/authors.component';
+import { TranslatorsComponent } from './translators/translators.component';
 import { FeatureComponent } from './feature/feature.component';
 import { SeriesComponent } from './series/series.component';
 import { SearchComponent } from './search/search.component';
@@ -15,6 +16,7 @@ const appRoutes: Routes = [
   { path: 'articles', redirectTo: '/articles/articlesLetterWise?title=@^अ', pathMatch: 'full' },
   { path: 'authors/:letter', component: AuthorsComponent },
   { path: 'authors', redirectTo: '/authors/अ', pathMatch: 'full' },
+  { path: 'translators', component: TranslatorsComponent },
   { path: 'features', component: FeatureComponent },
   { path: 'series', component: SeriesComponent },
   { path: 'search', component: SearchComponent },

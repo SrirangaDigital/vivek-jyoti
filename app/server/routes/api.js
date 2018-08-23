@@ -104,6 +104,35 @@ router.get('/authors/:letter', function(req, res){
 	});
 });
 
+router.get('/translators/:letter', function(req, res){
+
+	// Bring in TranslatorIndex model
+	let TranslatorIndex = require('../models/translatorIndex');
+
+	var query = {};
+	var sort = {};
+
+	if(req.params.letter == 'Featured') {
+
+		query['count'] = {'$gt' : 50};
+		sort['count'] = -1;
+	}
+	else{
+
+		query['translator'] = new RegExp('^' + req.params.letter, 'i');
+		sort['translator'] = 1;
+	}
+
+
+	TranslatorIndex.find(query).sort(sort).exec(function(err, result){
+
+		if(err)			
+			console.log(err);
+		else 
+			return res.json(result);
+	});
+});
+
 router.get('/search', function(req, res){
 
 	// Remove keys with null values

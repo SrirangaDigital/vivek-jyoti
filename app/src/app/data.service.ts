@@ -53,6 +53,12 @@ export class DataService {
 			.map(result => this.result = result.json());
 	}
 
+	getTranslatorsLetterWise(letter) {
+	
+		return this._http.get("http://localhost:3000/api/translators/" + letter)
+			.map(result => this.result = result.json());
+	}
+
 	getFeaturesList() {
 	
 		return this._http.get("http://localhost:3000/api/distinct/feature")

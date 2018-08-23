@@ -5,7 +5,7 @@
 
       <h1>अंक संग्रह : खोज परिणाम</h1>
       <progress *ngIf="!searchingComplete" class="search-progress" [value]="progress" [max]="maxVolume"></progress>
-      <h5 *ngIf="numresults > 0" class="num-results">Number of results: <span>{{ numresults }}</span></h5>
+      <h5 *ngIf="numresults > 0" class="num-results">परिणामों की संख्या : <span>{{ numresults.toString() | toDevanagari }}</span></h5>
       <h5 *ngIf="numresults == 0 && searchingComplete" class="no-results">No results!</h5>
       <div *ngFor="let article of articles">
         <div *ngIf="article?.length != 0" class="full-width-card blue-edge">

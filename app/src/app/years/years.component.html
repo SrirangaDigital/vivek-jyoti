@@ -9,7 +9,7 @@
   	  	<div *ngIf="rowDisplayed[iy]" id="issueHolder" class="issueHolder" style="display: block;">
   			  <div  *ngFor="let partLoop of partLoopVar; let ip = index" class="issueRow row justify-content-start">
 	  			  <div *ngFor="let part of parts | slice: (ip * partsPerRow) : partsPerRow * (ip + 1); let jp = index" class="issue col">
-	  				  <a title="{{ 'Volume ' + part.volume + ', Issue ' + part.part }}" routerLink="/articles/toc" [queryParams]="{volume: part.volume, part: part.part}">{{ part.date | monthToDevanagari }}</a>
+	  				  <a title="{{ 'वर्ष ' + part.volume + ', अंक ' + part.part }}" routerLink="/articles/toc" [queryParams]="{volume: part.volume, part: part.part}">{{ part.date | monthToDevanagari }}</a>
   				  </div>
 			    </div>
 		    </div>

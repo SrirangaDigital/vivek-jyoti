@@ -18,10 +18,10 @@ function createWindow() {
     app.server = require(__dirname + '/server')();
 
     let splashScreen = new BrowserWindow({
-        width: 200,
-        height: 200,
+        width: 162,
+        height: 192,
         frame: false,
-        icon: __dirname + '/dist/assets/img/logo.png',
+        icon: __dirname + '/dist/assets/img/icon.png',
         title: "Vivek Jyoti Archive"
     });
     splashScreen.loadURL(`file://${__dirname}/dist/assets/html/splash.html`)
@@ -31,7 +31,7 @@ function createWindow() {
     win = new BrowserWindow({ 
     
         show: false,
-        icon: __dirname + '/dist/assets/img/logo.png',
+        icon: __dirname + '/dist/assets/img/icon.png',
         title: "Vivek Jyoti Archive"
     });
 

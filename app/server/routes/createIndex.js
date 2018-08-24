@@ -20,8 +20,11 @@ router.get('/', function(req, res){
 	    this.saveDocument(false);
 	});
 
-    for(i=1;i<=63;i++) {
+	for(i=1;i<=42;i++) {
 
+		searchIndex.pipeline.remove(elasticlunr.stemmer);
+		searchIndex.pipeline.remove(elasticlunr.stopWordFilter);
+		searchIndex.pipeline.remove(elasticlunr.trimmer);
 
 		var str = "" + i;
 		var id = pad.substring(0, pad.length - str.length) + str;
@@ -33,7 +36,7 @@ router.get('/', function(req, res){
 	        searchIndex.addDoc(volumeData[j]);
 	    }
 		
-	    if ((i % 1 == 0) || (i == 63)) {
+	    if ((i % 1 == 0) || (i == 42)) {
 
 			outFileStr = "" + outFile;
 			outFileStr = pad.substring(0, pad.length - outFileStr.length) + outFileStr;

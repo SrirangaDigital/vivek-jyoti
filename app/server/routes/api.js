@@ -172,7 +172,7 @@ router.get('/search/text/:term/:volume', function(req, res){
 
 	var volIndex = ('000' + req.params.volume).substr(-3);
 
-	if ((parseInt(volIndex) < 0) || (parseInt(volIndex) > 63))
+	if ((parseInt(volIndex) < 0) || (parseInt(volIndex) > 42))
 		return res.json([]);
 
 	let SearchIndex = require('../models/searchIndex')(volIndex);
@@ -229,7 +229,7 @@ function getYearBoundary(searchString) {
 	years = _und.sortBy(years.split('-'));
 
 	yearBoundary['left'] = years[0];
-	yearBoundary['right'] = (typeof years[1] == 'undefined') ? '2016' : years[1];
+	yearBoundary['right'] = (typeof years[1] == 'undefined') ? '2018' : years[1];
 
 	return yearBoundary;
 }

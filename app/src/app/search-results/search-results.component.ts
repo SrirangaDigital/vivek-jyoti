@@ -20,7 +20,7 @@ export class SearchResultsComponent implements OnInit {
   articleListType: String;
   basePdfUrl: String;
   fullTextParam: String = '';
-  maxVolume: number = 63;
+  maxVolume: number = 42;
   currentVolume: number = 0;
   currentPointer:number = 1;
   progress:number = 3;

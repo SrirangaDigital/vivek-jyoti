@@ -22,7 +22,7 @@ function createWindow() {
         height: 200,
         frame: false,
         icon: __dirname + '/dist/assets/img/logo.png',
-        title: "The Bhavan's Journal Archive"
+        title: "Vivek Jyoti Archive"
     });
     splashScreen.loadURL(`file://${__dirname}/dist/assets/html/splash.html`)
     splashScreen.show();
@@ -32,7 +32,7 @@ function createWindow() {
     
         show: false,
         icon: __dirname + '/dist/assets/img/logo.png',
-        title: "The Bhavan's Journal Archive"
+        title: "Vivek Jyoti Archive"
     });
 
     win.loadURL(`file://${__dirname}/dist/index.html`)

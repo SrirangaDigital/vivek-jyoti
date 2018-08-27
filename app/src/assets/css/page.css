@@ -178,7 +178,7 @@
 }
 .mainpage .searchForm input.form-control[type="text"]{
   border: none;
-  border-bottom: 2px dashed #1565C0;
+  border-bottom: 1px dashed #AAA;
   border-radius: 0;
   outline: none;
   padding-top: 7px;
@@ -301,4 +301,38 @@ a.goBack{
   cursor: pointer;
   color: #1565C0 !important;
   font-family: 'Sanskrit2003', sans-serif;
+}
+
+
+/*Soft Keyboard*/
+
+@media(max-width:768px) {
+  #kbd{
+    display: none;
+  }
+}
+#kbd{
+  width: 360px;
+  /*float: right;*/
+  margin-right: 0px;
+}
+.keys{
+  width: 36px;
+  height: 36px;
+  float: left;
+  border-right: 1px solid #FF8A65;
+  border-bottom: 1px solid #FF8A65;
+  padding: 2px;
+  text-align: center;
+  cursor:pointer;
+  /*color: #AAA;*/
+}
+.keys:HOVER{
+  background-color: #FFF9C4;
+}
+.tline {
+  border-top: 1px solid #FF8A65;
+}
+.lline {
+  border-left: 1px solid #FF8A65;
 }

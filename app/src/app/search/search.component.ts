@@ -1,7 +1,10 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, Renderer } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import * as _underscore from 'underscore';
+
+// Import the DataService
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-search',
@@ -14,19 +17,28 @@ export class SearchComponent implements OnInit {
   search:Array<any>;
   title:string = '';
   authornames:string = '';
+  features: Array<any>;
   feature:string = '';
   series:string = '';
   fulltext:string = '';
   year:string = '';
   elid:string;
   
-  constructor( private route: ActivatedRoute, private router: Router ) { }
+  constructor( private route: ActivatedRoute, private router: Router, private _dataService: DataService, private renderer: Renderer ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    
+    this.route.paramMap
+      .switchMap((params: ParamMap) =>
+        this._dataService.getFeaturesList())
+      .subscribe(res => {
+        this.features = res;
+    });
+  }
 
   onSubmit(form: any) {
 
-    form = _underscore.pick(form, _underscore.identity;
+    form = _underscore.pick(form, _underscore.identity);
 	  this.router.navigate(['/searchResults'], { queryParams:  form });
   }
 
@@ -53,6 +65,8 @@ export class SearchComponent implements OnInit {
       case 'feature' :
         
         this.feature = (this.feature) ? this.feature + text : text;
+        setTimeout(() => this.renderer.selectRootElement('#feature').focus(), 0);
+
         break;
 
       case 'series' :
@@ -64,5 +78,6 @@ export class SearchComponent implements OnInit {
         
         this.fulltext = (this.fulltext) ? this.fulltext + text : text;
         break;
+    }
   }
 }

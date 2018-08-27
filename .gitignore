@@ -42,7 +42,6 @@ testem.log
 Thumbs.db
 
 # public files
-public/data
 public/index
 public/source
 public/Volumes
@@ -54,5 +53,4 @@ common/
 .junk/
 /app/public/index.asar
 /app/public/index/
-/app/public/data/
 /app/public/source/

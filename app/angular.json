@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bvb": {
+    "vivek-jyoti": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -54,18 +54,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "bvb:build"
+            "browserTarget": "vivek-jyoti:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "bvb:build:production"
+              "browserTarget": "vivek-jyoti:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bvb:build"
+            "browserTarget": "vivek-jyoti:build"
           }
         },
         "test": {
@@ -105,7 +105,7 @@
         }
       }
     },
-    "bvb-e2e": {
+    "vivek-jyoti-e2e": {
       "root": "e2e",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -114,7 +114,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "bvb:serve"
+            "devServerTarget": "vivek-jyoti:serve"
           }
         },
         "lint": {
@@ -131,7 +131,7 @@
       }
     }
   },
-  "defaultProject": "bvb",
+  "defaultProject": "vivek-jyoti",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

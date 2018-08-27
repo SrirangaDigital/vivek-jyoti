@@ -172,7 +172,7 @@ router.get('/search/text/:term/:volume', function(req, res){
 
 	var volIndex = ('000' + req.params.volume).substr(-3);
 
-	if ((parseInt(volIndex) < 0) || (parseInt(volIndex) > 42))
+	if ((parseInt(volIndex) < 0) || (parseInt(volIndex) > 56))
 		return res.json([]);
 
 	let SearchIndex = require('../models/searchIndex')(volIndex);

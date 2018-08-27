@@ -17,7 +17,11 @@ jQuery(document).ready(function($){
 	});
 
 	//open or close the menu clicking on the bottom "menu" link
-	$('.cd-sec-nav-trigger').on('click', function(){
+	$('body').on('click', '.cd-sec-nav-trigger', function(){
+
+		var navigationContainer = $('#cd-sec-nav'),
+			mainNavigation = navigationContainer.find('#cd-sec-main-nav ul');
+
 		$(this).toggleClass('menu-is-open');
 		//we need to remove the transitionEnd event handler (we add it when scolling up with the menu open)
 		mainNavigation.off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend').toggleClass('is-visible');
@@ -25,6 +29,10 @@ jQuery(document).ready(function($){
 	});
 
 	function checkMenu() {
+
+		var navigationContainer = $('#cd-sec-nav'),
+			mainNavigation = navigationContainer.find('#cd-sec-main-nav ul');
+
 		if( $(window).scrollTop() > offset && !navigationContainer.hasClass('is-fixed')) {
 			navigationContainer.addClass('is-fixed').find('.cd-sec-nav-trigger').one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(){
 				mainNavigation.addClass('has-transitions');

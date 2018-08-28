@@ -336,3 +336,13 @@ a.goBack{
 .lline {
   border-left: 1px solid #FF8A65;
 }
+
+/*cover page*/
+.cover{
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+}
+.cover img {
+  height: 192px;
+}

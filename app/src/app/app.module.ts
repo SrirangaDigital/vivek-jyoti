@@ -21,11 +21,15 @@ import { YearsComponent } from './years/years.component';
 import { SearchComponent } from './search/search.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { PageComponent } from './page/page.component';
+import { CoversComponent } from './covers/covers.component';
 
 // Custom Pipes
 import { RlzeroPipe } from './custom-pipes/rlzero.pipe';
 import { ToDevanagariPipe } from './custom-pipes/toDevanagari.pipe';
 import { MonthToDevanagariPipe } from './custom-pipes/monthToDevanagari.pipe';
+
+// Lightbox
+import { LightboxModule } from 'ngx-lightbox';
 
 @NgModule({
   declarations: [
@@ -41,13 +45,15 @@ import { MonthToDevanagariPipe } from './custom-pipes/monthToDevanagari.pipe';
     PageComponent,
     RlzeroPipe,
     ToDevanagariPipe,
-    MonthToDevanagariPipe
+    MonthToDevanagariPipe,
+    CoversComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    LightboxModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

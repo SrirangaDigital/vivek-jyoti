@@ -75,6 +75,23 @@ router.get('/parts', function(req, res){
 	});
 });
 
+router.get('/covers', function(req, res){
+
+	var query = {};
+
+	var projection = {}; projection['date'] = 1; projection['month'] = 1; projection['volume'] = 1; projection['part'] = 1; projection['year'] = 1; projection['_id'] = 0;
+	var sort = {}; sort['volume'] = 1; sort['part'] = 1;
+
+	Article.find(query, projection).sort(sort).exec(function(err, result){
+
+		if(err)			
+			console.log(err);
+		else 
+
+			return res.json(_und.uniq(result, 'date'));
+	});
+});
+
 router.get('/authors/:letter', function(req, res){
 
 	// Bring in AuthorIndex model

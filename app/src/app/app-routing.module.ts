@@ -9,6 +9,7 @@ import { SeriesComponent } from './series/series.component';
 import { SearchComponent } from './search/search.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { PageComponent } from './page/page.component';
+import { CoversComponent } from './covers/covers.component';
 
 const appRoutes: Routes = [
   { path: 'years', component: YearsComponent },
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
   { path: 'search', component: SearchComponent },
   { path: 'searchResults', component: SearchResultsComponent },
   { path: 'page/:name', component: PageComponent },
+  { path: 'covers', component: CoversComponent },
   { path: '**', redirectTo: 'page/home' }
 ];
 

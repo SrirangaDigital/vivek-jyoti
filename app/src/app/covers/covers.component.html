@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md"></div>
+    <div class="col-md-10 mainpage">
+
+      <h1>अंक संग्रह : आवरण-पृष्ठ</h1>
+
+      <div class="row coverHolder">
+	      <div class="col-md-2 cover" *ngFor="let image of _album; let i=index">
+	        <img class="img-fluid" [src]="image.thumb" (click)="open(i)"/>
+	      </div>
+      </div>
+    </div>
+    <div class="col-md"></div>
+  </div>
+</div>

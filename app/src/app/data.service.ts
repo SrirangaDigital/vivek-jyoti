@@ -77,6 +77,12 @@ export class DataService {
 			.map(result => this.result = result.json());
 	}
 
+	getCoversList() {
+	
+		return this._http.get("http://localhost:3000/api/covers")
+			.map(result => this.result = result.json());
+	}
+
 	getPartsByYear(year) {
 	
 		return this._http.get("http://localhost:3000/api/parts?year=" + year)

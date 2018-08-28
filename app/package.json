@@ -34,7 +34,6 @@
     "express": "^4.16.2",
     "jquery": "^3.2.1",
     "nedb": "^1.8.0",
-    "ngx-lightbox": "^1.1.0",
     "popper.js": "^1.12.6",
     "rxjs": "^6.2.2",
     "rxjs-compat": "^6.2.2",

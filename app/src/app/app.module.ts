@@ -28,8 +28,8 @@ import { RlzeroPipe } from './custom-pipes/rlzero.pipe';
 import { ToDevanagariPipe } from './custom-pipes/toDevanagari.pipe';
 import { MonthToDevanagariPipe } from './custom-pipes/monthToDevanagari.pipe';
 
-// Lightbox
-import { LightboxModule } from 'ngx-lightbox';
+// Viewer
+import { ViewerDirective } from './viewer.directive';
 
 @NgModule({
   declarations: [
@@ -46,14 +46,14 @@ import { LightboxModule } from 'ngx-lightbox';
     RlzeroPipe,
     ToDevanagariPipe,
     MonthToDevanagariPipe,
-    CoversComponent
+    CoversComponent,
+    ViewerDirective
   ],
   imports: [
     BrowserModule,
     HttpModule,
     AppRoutingModule,
-    FormsModule,
-    LightboxModule
+    FormsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

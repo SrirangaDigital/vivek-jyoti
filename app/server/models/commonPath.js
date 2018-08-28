@@ -4,7 +4,7 @@ var fs = require('fs');
 var commonPath = '';
 
 var commomFolderName = 'vvjcommon';
-var discName = 'Vivek-Jyoti';
+var discName = 'VIVEK-JYOTI';
 
 switch(os.platform()) {
 

@@ -22,8 +22,7 @@ switch(os.platform()) {
 
     case "linux":
 
-        commonPath = '/home/sriranga/Documents/node/vivek-jyoti/release-builds/vvjcommon';
-		// commonPath = '/media/' + os.userInfo().username + '/' + discName + '/' + commomFolderName;
+		commonPath = '/media/' + os.userInfo().username + '/' + discName + '/' + commomFolderName;
         break;
 
     case "darwin":

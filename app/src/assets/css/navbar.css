@@ -134,7 +134,8 @@ Secondary Navigation
 #cd-sec-nav li:last-child a {
   border-bottom: none;
 }
-#cd-sec-nav i{
+#cd-sec-nav i,
+#cd-sec-nav span{
   margin-right: 3px;
   color: #AAA;
 }
@@ -182,6 +183,7 @@ Secondary Navigation
     border-bottom: 1px solid #FF8A65;
     transition: color 0.3s ease-out;
   }
+  #cd-sec-nav li:hover span,
   #cd-sec-nav li:hover i{
     color: #FF8A65;
   }
@@ -206,7 +208,7 @@ Secondary Navigation
     border-bottom: 1px solid white;
   }
   #cd-sec-nav.is-fixed ul li a {
-    padding: 1em 1em 1em 1.6em;
+    padding: 10px 10px 10px 25px;
     margin-left: 0;
     border-bottom: 1px solid #eff2f6;
     font-weight: normal;

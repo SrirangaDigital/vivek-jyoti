@@ -277,7 +277,13 @@
   color: #CCC;
   padding: 20px 0;
 }
-.mainpage .archiveIcon i:hover{
+.mainpage .archiveIcon span{
+  font-size: 52px;
+  color: #CCC;
+  padding: 30px 0 30px;
+}
+.mainpage .archiveIcon i:hover,
+.mainpage .archiveIcon span:hover{
   color: #FF8A65;
 }
 .mainpage .full-width-card h2.title .serial-no{

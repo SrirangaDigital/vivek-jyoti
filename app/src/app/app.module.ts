@@ -29,7 +29,7 @@ import { ToDevanagariPipe } from './custom-pipes/toDevanagari.pipe';
 import { MonthToDevanagariPipe } from './custom-pipes/monthToDevanagari.pipe';
 
 // Viewer
-import { ViewerDirective } from './viewer.directive';
+import { ViewerDirectiveModule } from './viewer.directive';
 
 @NgModule({
   declarations: [
@@ -46,14 +46,14 @@ import { ViewerDirective } from './viewer.directive';
     RlzeroPipe,
     ToDevanagariPipe,
     MonthToDevanagariPipe,
-    CoversComponent,
-    ViewerDirective
+    CoversComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ViewerDirectiveModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

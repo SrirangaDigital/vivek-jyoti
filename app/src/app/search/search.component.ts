@@ -17,6 +17,7 @@ export class SearchComponent implements OnInit {
   search:Array<any>;
   title:string = '';
   authornames:string = '';
+  translatornames:string = '';
   features: Array<any>;
   feature:string = '';
   series:string = '';
@@ -60,6 +61,11 @@ export class SearchComponent implements OnInit {
       case 'authornames' :
         
         this.authornames = (this.authornames) ? this.authornames + text : text;
+        break;
+
+      case 'translatornames' :
+        
+        this.translatornames = (this.translatornames) ? this.translatornames + text : text;
         break;
 
       case 'feature' :

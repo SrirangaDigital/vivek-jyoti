@@ -323,6 +323,7 @@ a.goBack{
   margin-right: 0px;
 }
 .keys{
+  font-size: 20px;
   width: 36px;
   height: 36px;
   float: left;
@@ -351,4 +352,8 @@ a.goBack{
 }
 .cover img {
   height: 192px !important;
+}
+
+.feng{
+  font-family: 'Lato', sans-serif !important;
 }

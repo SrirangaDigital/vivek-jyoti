@@ -6,6 +6,10 @@ import * as _underscore from 'underscore';
 // Import the DataService
 import { DataService } from '../data.service';
 
+
+ // Load the Google Transliterate API
+declare let google: any;
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -24,11 +28,43 @@ export class SearchComponent implements OnInit {
   fulltext:string = '';
   year:string = '';
   elid:string;
+  googleLocal:any;
   
-  constructor( private route: ActivatedRoute, private router: Router, private _dataService: DataService, private renderer: Renderer ) { }
+  constructor( private route: ActivatedRoute, private router: Router, private _dataService: DataService, private renderer: Renderer) { }
 
   ngOnInit() {
-    
+  
+    // this.googleLocal = new google;
+
+    // this._http.get("https://www.google.com/jsapi");
+
+    google.load("elements", "1", {
+        packages: "transliteration",
+        callback: onLoad
+    });
+
+    // google.setOnLoadCallback(onLoad);
+
+    function onLoad() {
+        var options = {
+            sourceLanguage: 'en', // or google.elements.transliteration.LanguageCode.ENGLISH,
+            destinationLanguage: ['hi'], // or [google.elements.transliteration.LanguageCode.HINDI],
+            shortcutKey: 'ctrl+g',
+            transliterationEnabled: true
+        };
+        // Create an instance on TransliterationControl with the required
+        // options.
+        var control = new google.elements.transliteration.TransliterationControl(options);
+
+        // Enable transliteration in the textfields with the given ids.
+        var ids = ["title", "authornames", "translatornames", "feature", "series", "fulltext"];
+        control.makeTransliteratable(ids);
+
+        // Show the transliteration control which can be used to toggle between
+        // English and Hindi.
+        // control.showControl('translControl');
+    }
+
     this.route.paramMap
       .switchMap((params: ParamMap) =>
         this._dataService.getFeaturesList())

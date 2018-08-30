@@ -19,7 +19,7 @@ function createWindow() {
 
     let splashScreen = new BrowserWindow({
         width: 162,
-        height: 192,
+        height: 162,
         frame: false,
         icon: __dirname + '/dist/assets/img/icon.png',
         title: "Vivek Jyoti Archive"

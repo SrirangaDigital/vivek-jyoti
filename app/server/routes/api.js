@@ -121,6 +121,25 @@ router.get('/authors/:letter', function(req, res){
 	});
 });
 
+router.get('/authors', function(req, res){
+
+	// Bring in AuthorIndex model
+	let AuthorIndex = require('../models/authorIndex');
+
+	var query = {};
+	var sort = {};
+
+	sort['author'] = 1;
+
+	AuthorIndex.find(query).sort(sort).exec(function(err, result){
+
+		if(err)			
+			console.log(err);
+		else 
+			return res.json(result);
+	});
+});
+
 router.get('/translators/:letter', function(req, res){
 
 	// Bring in TranslatorIndex model

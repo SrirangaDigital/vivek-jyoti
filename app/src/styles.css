@@ -7,3 +7,4 @@
 @import "../src/assets/css/general.css";
 @import "../src/assets/css/fontawesome-free-5.2.0-web/css/all.css";
 @import "../src/assets/css/viewer.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";

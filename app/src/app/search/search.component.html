@@ -4,53 +4,58 @@
     <div class="col-md-10 mainpage">
       <h1>अंक संग्रह : खोज</h1>
       <p class="feng">Type in English and press Space bar to transliterate to Hindi. Press Backspace to make corrections. Alternatively, the soft keyboard provided could also be used.</p>
-  	  <form class="searchForm" role="form" (ngSubmit)="onSubmit(searchForm.value)" #searchForm="ngForm">
+  	  <form class="searchForm" role="form" (ngSubmit)="onSubmit()" [formGroup]="searchForm">
   	  	<div class="row justify-content-between">
           <div class="col-md-6">
             <div class="form-group row">
-              <label for="title" class="col-lg-3 col-form-label form-control-label">लेख</label>
-              <div class="col-lg-9">
-                <input [(ngModel)]="title" name="title" id="title" class="form-control" type="text" (focus)="onFocus('title')">
-              </div>
+              <mat-form-field class="search-full-width">
+                <mat-label>लेख</mat-label>
+                <input type="text" aria-label="Number" matInput formControlName="title" id="title" class="form-control" (focus)="onFocus('title')">
+              </mat-form-field>
             </div>
             <div class="form-group row">
-              <label for="authornames" class="col-lg-3 col-form-label form-control-label">लेखक</label>
-              <div class="col-lg-9">
-                <input [(ngModel)]="authornames" name="authornames" id="authornames" class="form-control" type="text" (focus)="onFocus('authornames')">
-              </div>
+              <mat-form-field class="search-full-width">
+                <mat-label>लेखक</mat-label>
+                <input type="text" aria-label="Number" matInput formControlName="authornames" [matAutocomplete]="auto" id="authornames" class="form-control">
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let author of filteredAuthorOptions | async" [value]="author.author">
+                    {{ author.author }}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
             </div>
             <div class="form-group row">
-              <label for="translatornames" class="col-lg-3 col-form-label form-control-label">अनुवादक</label>
-              <div class="col-lg-9">
-                <input [(ngModel)]="translatornames" name="translatornames" id="translatornames" class="form-control" type="text" (focus)="onFocus('translatornames')">
-              </div>
+              <mat-form-field class="search-full-width">
+                <mat-label>अनुवादक</mat-label>
+                <input type="text" aria-label="Number" matInput formControlName="translatornames" id="translatornames" class="form-control" (focus)="translatornames('translatornames')">
+              </mat-form-field>
             </div>
             <div class="form-group row">
-              <label for="feature" class="col-lg-3 col-form-label form-control-label">स्तम्भ</label>
-              <div class="col-lg-9">
-                <input [(ngModel)]="feature" name="feature" id="feature" list="features" class="form-control" type="text" (focus)="onFocus('feature')">
+              <mat-form-field class="search-full-width">
+                <mat-label>स्तम्भ</mat-label>
+                <input type="text" aria-label="Number" list="features" matInput formControlName="feature" id="feature" class="form-control" (focus)="onFocus('feature')">
                 <datalist id="features">
                   <option *ngFor="let feature of features" value="{{ feature }}"></option>
                 </datalist>
-              </div>
+              </mat-form-field>
             </div>
             <div class="form-group row">
-              <label for="series" class="col-lg-3 col-form-label form-control-label">लेखमाला</label>
-              <div class="col-lg-9">
-                <input [(ngModel)]="series" name="series" id="series" class="form-control" type="text" (focus)="onFocus('series')">
-              </div>
+              <mat-form-field class="search-full-width">
+                <mat-label>लेखमाला</mat-label>
+                <input type="text" aria-label="Number" matInput formControlName="series" id="series" class="form-control" (focus)="onFocus('series')">
+              </mat-form-field>
             </div>
             <div class="form-group row">
-              <label for="fulltext" class="col-lg-3 col-form-label form-control-label">शब्द</label>
-              <div class="col-lg-9">
-                <input [(ngModel)]="fulltext" name="fulltext" id="fulltext" class="form-control" type="text" (focus)="onFocus('fulltext')">
-              </div>
+              <mat-form-field class="search-full-width">
+                <mat-label>शब्द</mat-label>
+                <input type="text" aria-label="Number" matInput formControlName="fulltext" id="fulltext" class="form-control" (focus)="onFocus('fulltext')">
+              </mat-form-field>
             </div>
             <div class="form-group row">
-              <label for="year" class="col-lg-3 col-form-label form-control-label">अवधि</label>
-              <div class="col-lg-9">
-                <input [(ngModel)]="year" name="year" id="year" class="form-control" type="text" placeholder="Year1-Year2">
-              </div>
+              <mat-form-field class="search-full-width">
+                <mat-label>अवधि</mat-label>
+                <input type="text" placeholder="(Year1-Year2)" aria-label="Number" matInput formControlName="year" id="year" class="form-control">
+              </mat-form-field>
             </div>
             <div class="row justify-content-center mt-5">
               <div class="col-md-4">
@@ -61,7 +66,7 @@
               </div>
             </div>
           </div>
-          <div class="col-md-5 pt-3">
+          <div class="col-md-5 pt-5">
             <div id="kbd">
                 <div class="keys lline tline" id="a" style="clear: left;" (click)="insertText('अ')">अ</div>
                 <div class="keys tline" id="A" (click)="insertText('आ')">आ</div>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 // Api service
@@ -31,6 +31,10 @@ import { MonthToDevanagariPipe } from './custom-pipes/monthToDevanagari.pipe';
 // Viewer
 import { ViewerDirectiveModule } from './viewer.directive';
 
+// Angular material
+import { MatAutocompleteModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,6 +57,8 @@ import { ViewerDirectiveModule } from './viewer.directive';
     HttpModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule, MatFormFieldModule, MatInputModule, BrowserAnimationsModule, 
     ViewerDirectiveModule
   ],
   providers: [DataService],

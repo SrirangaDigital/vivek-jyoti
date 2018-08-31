@@ -163,8 +163,19 @@
   margin-top: 64px;
   font-family: 'Sanskrit2003', sans-serif;
 }
+/*Angular styles for forms*/
+mat-form-field.mat-form-field{
+  font-family: 'Sanskrit2003' !important;
+  font-size: 18px !important;
+  line-height: 24px !important;
+  padding-left: 20px;
+}
+mat-label {
+  color: #1565C0 !important;
+  font-size: 20px !important;
+}
 .mainpage .searchForm .row{
-  margin-bottom: 24px;
+  margin-bottom: 0px;
 }
 .mainpage .searchForm .form-control-label{
   text-align: right;
@@ -178,7 +189,6 @@
 }
 .mainpage .searchForm input.form-control[type="text"]{
   border: none;
-  border-bottom: 1px dashed #AAA;
   border-radius: 0;
   outline: none;
   padding-top: 7px;
@@ -199,6 +209,13 @@
 .mainpage .searchForm input.form-control[type="reset"]:hover{
   border-color: #dc3545;
 }
+
+.search-full-width {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
 .mainpage .no-results{
   margin-top: 50px;
   color: #D84315;
@@ -357,3 +374,6 @@ a.goBack{
 .feng{
   font-family: 'Lato', sans-serif !important;
 }
+
+
+

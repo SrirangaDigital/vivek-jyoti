@@ -1,5 +1,11 @@
 import { Component, OnInit, ViewEncapsulation, Renderer } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 
 import * as _underscore from 'underscore';
 
@@ -10,6 +16,11 @@ import { DataService } from '../data.service';
  // Load the Google Transliterate API
 declare let google: any;
 
+export interface Author {
+  author: string;
+  roman: string;
+}
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -18,32 +29,32 @@ declare let google: any;
 })
 export class SearchComponent implements OnInit {
 
-  search:Array<any>;
-  title:string = '';
-  authornames:string = '';
-  translatornames:string = '';
-  features: Array<any>;
-  feature:string = '';
-  series:string = '';
-  fulltext:string = '';
-  year:string = '';
+  searchForm = new FormGroup({
+    title: new FormControl(''),
+    authornames: new FormControl(''),
+    translatornames: new FormControl(''),
+    feature: new FormControl(''),
+    series: new FormControl(''),
+    fulltext: new FormControl(''),
+    year: new FormControl('')
+  });
+
   elid:string;
   googleLocal:any;
+  
+  features: Array<any>;
+  authors: Array<any>;
+
+  filteredAuthorOptions: Observable<string[]>;
   
   constructor( private route: ActivatedRoute, private router: Router, private _dataService: DataService, private renderer: Renderer) { }
 
   ngOnInit() {
-  
-    // this.googleLocal = new google;
-
-    // this._http.get("https://www.google.com/jsapi");
-
+    
     google.load("elements", "1", {
         packages: "transliteration",
         callback: onLoad
     });
-
-    // google.setOnLoadCallback(onLoad);
 
     function onLoad() {
         var options = {
@@ -59,10 +70,6 @@ export class SearchComponent implements OnInit {
         // Enable transliteration in the textfields with the given ids.
         var ids = ["title", "authornames", "translatornames", "feature", "series", "fulltext"];
         control.makeTransliteratable(ids);
-
-        // Show the transliteration control which can be used to toggle between
-        // English and Hindi.
-        // control.showControl('translControl');
     }
 
     this.route.paramMap
@@ -71,11 +78,36 @@ export class SearchComponent implements OnInit {
       .subscribe(res => {
         this.features = res;
     });
+
+    this.route.paramMap
+      .switchMap((params: ParamMap) =>
+        this._dataService.getAllAuthors())
+      .subscribe(res => {
+        this.authors = res;
+
+
+        this.filteredAuthorOptions = this.searchForm.get('authornames').valueChanges
+          .pipe(
+            map(value => value ? this._filter(value) : this.authors.slice())
+          );
+    });
   }
 
-  onSubmit(form: any) {
+  private _filter(value: string): Author[] {
 
-    form = _underscore.pick(form, _underscore.identity);
+    const filterValue = value.toLowerCase();
+
+    return this.authors.filter(option => option.author.toLowerCase().includes(filterValue));
+  }
+
+  // displayAuthor(user?: Author): string | undefined {
+    
+  //   return user ? user.author : undefined;
+  // }
+
+  onSubmit() {
+
+    var form = _underscore.pick(this.searchForm.value, _underscore.identity);
 	  this.router.navigate(['/searchResults'], { queryParams:  form });
   }
 
@@ -91,34 +123,46 @@ export class SearchComponent implements OnInit {
 
       case 'title' :
         
-        this.title = (this.title) ? this.title + text : text;
+        var title = this.searchForm.get('title').value;
+        title = title ? title + text : text;
+        this.searchForm.get('title').setValue(title);
         break;
 
       case 'authornames' :
         
-        this.authornames = (this.authornames) ? this.authornames + text : text;
+        var authornames = this.searchForm.get('authornames').value;
+        authornames = authornames ? authornames + text : text;
+        this.searchForm.get('authornames').setValue(authornames);
         break;
 
       case 'translatornames' :
         
-        this.translatornames = (this.translatornames) ? this.translatornames + text : text;
+        var translatornames = this.searchForm.get('translatornames').value;
+        translatornames = translatornames ? translatornames + text : text;
+        this.searchForm.get('translatornames').setValue(translatornames);
         break;
 
       case 'feature' :
         
-        this.feature = (this.feature) ? this.feature + text : text;
+        var feature = this.searchForm.get('feature').value;
+        feature = feature ? feature + text : text;
+        this.searchForm.get('feature').setValue(feature);
         setTimeout(() => this.renderer.selectRootElement('#feature').focus(), 0);
 
         break;
 
       case 'series' :
         
-        this.series = (this.series) ? this.series + text : text;
+        var series = this.searchForm.get('series').value;
+        series = series ? series + text : text;
+        this.searchForm.get('series').setValue(series);
         break;
 
       case 'fulltext' :
         
-        this.fulltext = (this.fulltext) ? this.fulltext + text : text;
+        var fulltext = this.searchForm.get('fulltext').value;
+        fulltext = fulltext ? fulltext + text : text;
+        this.searchForm.get('fulltext').setValue(fulltext);
         break;
     }
   }

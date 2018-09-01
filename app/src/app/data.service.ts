@@ -52,6 +52,7 @@ export class DataService {
 		return this._http.get("http://localhost:3000/api/authors")
 			.map(result => this.result = result.json());
 	}
+	
 
 	getAuthorsLetterWise(letter) {
 	
@@ -62,6 +63,12 @@ export class DataService {
 	getTranslatorsLetterWise(letter) {
 	
 		return this._http.get("http://localhost:3000/api/translators/" + letter)
+			.map(result => this.result = result.json());
+	}
+
+	getAllTranslators() {
+	
+		return this._http.get("http://localhost:3000/api/translators")
 			.map(result => this.result = result.json());
 	}
 

@@ -33,5 +33,4 @@ export class AuthorsComponent implements OnInit {
         this.letter = this.letter;
     });
   }
-
 }

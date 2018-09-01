@@ -38,4 +38,9 @@ export class AppComponent implements OnInit {
       }
     });
   }  
+
+  onClick() {
+
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+  }
 }

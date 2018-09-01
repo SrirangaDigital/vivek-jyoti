@@ -37,9 +37,11 @@ jQuery(document).ready(function($){
 			navigationContainer.addClass('is-fixed').find('.cd-sec-nav-trigger').one('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(){
 				mainNavigation.addClass('has-transitions');
 			});
+			$('.scroll-top').fadeIn(100);
 		} else if ($(window).scrollTop() <= offset) {
 
 			console.log('Open');
+			$('.scroll-top').fadeOut(100);
 			//check if the menu is open when scrolling up
 			if( mainNavigation.hasClass('is-visible')  && !$('html').hasClass('no-csstransitions') ) {
 				//close the menu with animation

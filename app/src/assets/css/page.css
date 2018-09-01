@@ -375,5 +375,16 @@ a.goBack{
   font-family: 'Lato', sans-serif !important;
 }
 
-
+.scroll-top{
+  font-family: 'Lato', sans-serif !important;
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align:center;
+  width: 50px;
+  color: #1565C0;
+  display: none;
+}
 

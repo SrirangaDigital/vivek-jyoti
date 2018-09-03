@@ -134,6 +134,10 @@ export class SearchComponent implements OnInit {
 
   onSubmit() {
 
+    this.searchForm.get('title').setValue(this.renderer.selectRootElement('#title').value);
+    this.searchForm.get('series').setValue(this.renderer.selectRootElement('#series').value);
+    this.searchForm.get('fulltext').setValue(this.renderer.selectRootElement('#fulltext').value);
+    
     var form = _underscore.pick(this.searchForm.value, _underscore.identity);
 	  this.router.navigate(['/searchResults'], { queryParams:  form });
   }

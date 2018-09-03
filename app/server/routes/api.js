@@ -203,6 +203,9 @@ router.get('/search', function(req, res){
 		}
 		else{
 
+			value = value.replace(/\s+$/, '');
+			value = value.replace(/^\s+/, '');
+
 			query[key] = new RegExp(value.replace(' ', '.*'), 'i');
 		}
 	});

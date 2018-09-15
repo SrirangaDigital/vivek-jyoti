@@ -67,7 +67,7 @@ export class SearchResultsComponent implements OnInit {
 
         this.articles = this.articles.concat(res[0]);
         this.numresults = this.articles.length;
-        this.basePdfUrl = 'http://localhost:3000/pdfjs/web/viewer.html?file=../../Volumes/';
+        this.basePdfUrl = 'http://127.0.0.1:3000/pdfjs/web/viewer.html?file=../../Volumes/';
         if(this.currentVolume == this.maxVolume) this.searchingComplete = true;
       });
   }
@@ -79,7 +79,7 @@ export class SearchResultsComponent implements OnInit {
 
         this.articles = res;
         this.numresults = this.articles.length;
-        this.basePdfUrl = 'http://localhost:3000/pdfjs/web/viewer.html?file=../../Volumes/';
+        this.basePdfUrl = 'http://127.0.0.1:3000/pdfjs/web/viewer.html?file=../../Volumes/';
         this.searchingComplete = true;
     });
   }

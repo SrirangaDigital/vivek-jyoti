@@ -44,7 +44,7 @@ export class ArticlesComponent implements OnInit {
       })
       .subscribe(res => {
         this.articles = res;
-        this.basePdfUrl = 'http://localhost:3000/pdfjs/web/viewer.html?file=../../Volumes/';
+        this.basePdfUrl = 'http://127.0.0.1:3000/pdfjs/web/viewer.html?file=../../Volumes/';
         this.getPageTitle(this.articleListType);
         this.numArticles = this.articles.length;
     });

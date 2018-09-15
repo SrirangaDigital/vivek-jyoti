@@ -22,7 +22,7 @@ export class DataService {
 		let params = new URLSearchParams();
 		for(let key in filter.params) if (key != 'type') params.set(key, filter.params[key])
 
-		return this._http.get("http://localhost:3000/api/articles?" + params.toString())
+		return this._http.get("http://127.0.0.1:3000/api/articles?" + params.toString())
 			.map(result => this.result = result.json());
 	}
 
@@ -31,74 +31,74 @@ export class DataService {
 		let params = new URLSearchParams();
 		for(let key in filter.params) if (key != 'type') params.set(key, filter.params[key])
 			
-		return this._http.get("http://localhost:3000/api/search?" + params.toString())
+		return this._http.get("http://127.0.0.1:3000/api/search?" + params.toString())
 			.map(result => this.result = result.json());
 	}
 
 	getIssueArticles(volume, part) {
 	
-		return this._http.get("http://localhost:3000/api/articles?volume=" + volume + "&part=" + part)
+		return this._http.get("http://127.0.0.1:3000/api/articles?volume=" + volume + "&part=" + part)
 			.map(result => this.result = result.json());
 	}
 
 	getArticlesLetterWise(letter) {
 	
-		return this._http.get("http://localhost:3000/api/articles?title=@^" + letter)
+		return this._http.get("http://127.0.0.1:3000/api/articles?title=@^" + letter)
 			.map(result => this.result = result.json());
 	}
 	
 	getAllAuthors() {
 	
-		return this._http.get("http://localhost:3000/api/authors")
+		return this._http.get("http://127.0.0.1:3000/api/authors")
 			.map(result => this.result = result.json());
 	}
 	
 
 	getAuthorsLetterWise(letter) {
 	
-		return this._http.get("http://localhost:3000/api/authors/" + letter)
+		return this._http.get("http://127.0.0.1:3000/api/authors/" + letter)
 			.map(result => this.result = result.json());
 	}
 
 	getTranslatorsLetterWise(letter) {
 	
-		return this._http.get("http://localhost:3000/api/translators/" + letter)
+		return this._http.get("http://127.0.0.1:3000/api/translators/" + letter)
 			.map(result => this.result = result.json());
 	}
 
 	getAllTranslators() {
 	
-		return this._http.get("http://localhost:3000/api/translators")
+		return this._http.get("http://127.0.0.1:3000/api/translators")
 			.map(result => this.result = result.json());
 	}
 
 	getFeaturesList() {
 	
-		return this._http.get("http://localhost:3000/api/distinct/feature")
+		return this._http.get("http://127.0.0.1:3000/api/distinct/feature")
 			.map(result => this.result = result.json());
 	}
 
 	getSeriesList() {
 	
-		return this._http.get("http://localhost:3000/api/distinct/series")
+		return this._http.get("http://127.0.0.1:3000/api/distinct/series")
 			.map(result => this.result = result.json());
 	}
 
 	getYearsList() {
 	
-		return this._http.get("http://localhost:3000/api/distinct/year")
+		return this._http.get("http://127.0.0.1:3000/api/distinct/year")
 			.map(result => this.result = result.json());
 	}
 
 	getCoversList() {
 	
-		return this._http.get("http://localhost:3000/api/covers")
+		return this._http.get("http://127.0.0.1:3000/api/covers")
 			.map(result => this.result = result.json());
 	}
 
 	getPartsByYear(year) {
 	
-		return this._http.get("http://localhost:3000/api/parts?year=" + year)
+		return this._http.get("http://127.0.0.1:3000/api/parts?year=" + year)
 			.map(result => this.result = result.json());
 	}
 
@@ -109,7 +109,7 @@ export class DataService {
 
 		let searchResult = [];
 		params.delete('fulltext');
-		return this._http.get("http://localhost:3000/api/search/text/" + filter.params['fulltext'] + '/' + volume)
+		return this._http.get("http://127.0.0.1:3000/api/search/text/" + filter.params['fulltext'] + '/' + volume)
 			.map(res => res.json()) // convert to object[]
 			.map(res => res.map(fulltextResult => fulltextResult.ref)) // get all pageids
 			.mergeMap(pageids => {
@@ -121,7 +121,7 @@ export class DataService {
 				let req;
 
 				if(titleidFilter)
-					req = this._http.get("http://localhost:3000/api/search?" + params.toString() + "&titleid=" + titleidFilter);
+					req = this._http.get("http://127.0.0.1:3000/api/search?" + params.toString() + "&titleid=" + titleidFilter);
 				else
 					req = Observable.of({});
 

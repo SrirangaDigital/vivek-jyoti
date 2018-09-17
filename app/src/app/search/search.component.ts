@@ -58,10 +58,15 @@ export class SearchComponent implements OnInit {
 
   ngOnInit() {
     
-    google.load("elements", "1", {
-        packages: "transliteration",
-        callback: onLoad
-    });
+
+    if(!(typeof google === 'undefined')) {
+
+      google.load("elements", "1", {
+          packages: "transliteration",
+          callback: onLoad
+      });
+    }
+
 
     function onLoad() {
         var options = {
